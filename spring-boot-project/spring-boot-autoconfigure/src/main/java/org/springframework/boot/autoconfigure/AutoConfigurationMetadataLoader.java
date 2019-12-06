@@ -27,6 +27,7 @@ import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * 用于加载{@link AutoConfigurationMetadata} 的内部工具类
  * Internal utility used to load {@link AutoConfigurationMetadata}.
  *
  * @author Phillip Webb
@@ -62,6 +63,7 @@ final class AutoConfigurationMetadataLoader {
 	}
 
 	/**
+	 * 内部是{@code Properties} 的{@code AutoConfigurationMetadata} 实现
 	 * {@link AutoConfigurationMetadata} implementation backed by a properties file.
 	 */
 	private static class PropertiesAutoConfigurationMetadata implements AutoConfigurationMetadata {
@@ -72,6 +74,11 @@ final class AutoConfigurationMetadataLoader {
 			this.properties = properties;
 		}
 
+		/**
+		 * 自动配置元数据内是否有配置给定类名
+		 * @param className the source class
+		 * @return
+		 */
 		@Override
 		public boolean wasProcessed(String className) {
 			return this.properties.containsKey(className);

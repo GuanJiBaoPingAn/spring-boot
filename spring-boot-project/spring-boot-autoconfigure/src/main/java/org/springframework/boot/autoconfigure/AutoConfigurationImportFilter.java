@@ -22,6 +22,7 @@ import org.springframework.context.EnvironmentAware;
 import org.springframework.context.ResourceLoaderAware;
 
 /**
+ * 可通过{@code spring.factories} 注册的过滤器，用于限制需要自动配置的类。改类用于在字节码读取前移除自动配置类。
  * Filter that can be registered in {@code spring.factories} to limit the
  * auto-configuration classes considered. This interface is designed to allow fast removal
  * of auto-configuration classes before their bytecode is even read.

@@ -27,6 +27,10 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.Conditional;
 
 /**
+ * {@link Conditional @Conditional} 只会匹配在{@link BeanFactory} 中所有满足需要的bean。
+ * 当注解在{@code @Bean} 方法上，默认返回工厂方法。下方示例代码，{@link BeanFactory} 内包含{@code MyService} 的会进行匹配。
+ * 条件匹配只会在应用上下文已处理完成的BeanDefinition 之间进行
+ *
  * {@link Conditional @Conditional} that only matches when beans meeting all the specified
  * requirements are already contained in the {@link BeanFactory}. All the requirements
  * must be met for the condition to match, but they do not have to be met by the same
@@ -65,6 +69,7 @@ import org.springframework.context.annotation.Conditional;
 public @interface ConditionalOnBean {
 
 	/**
+	 * 需要检测的Bean 类型
 	 * The class types of beans that should be checked. The condition matches when beans
 	 * of all classes specified are contained in the {@link BeanFactory}.
 	 * @return the class types of beans to check
@@ -72,6 +77,7 @@ public @interface ConditionalOnBean {
 	Class<?>[] value() default {};
 
 	/**
+	 * 需要检测的Bean 类名
 	 * The class type names of beans that should be checked. The condition matches when
 	 * beans of all classes specified are contained in the {@link BeanFactory}.
 	 * @return the class type names of beans to check
@@ -79,6 +85,7 @@ public @interface ConditionalOnBean {
 	String[] type() default {};
 
 	/**
+	 * 需要检测的Bean 的注解类型
 	 * The annotation type decorating a bean that should be checked. The condition matches
 	 * when all of the annotations specified are defined on beans in the
 	 * {@link BeanFactory}.
@@ -87,6 +94,7 @@ public @interface ConditionalOnBean {
 	Class<? extends Annotation>[] annotation() default {};
 
 	/**
+	 * 需要检测的Bean 名称
 	 * The names of beans to check. The condition matches when all of the bean names
 	 * specified are contained in the {@link BeanFactory}.
 	 * @return the names of beans to check
@@ -94,6 +102,7 @@ public @interface ConditionalOnBean {
 	String[] name() default {};
 
 	/**
+	 * 搜索策略
 	 * Strategy to decide if the application context hierarchy (parent contexts) should be
 	 * considered.
 	 * @return the search strategy

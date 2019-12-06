@@ -27,6 +27,8 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.Conditional;
 
 /**
+ * {@link Conditional @Conditional} 只匹配指定Bean 不存在时。
+ * 下方示例代码，{@link BeanFactory} 内不包含{@code MyService} 的会进行匹配。条件匹配只会在应用上下文已处理完成的BeanDefinition 之间进行
  * {@link Conditional @Conditional} that only matches when no beans meeting the specified
  * requirements are already contained in the {@link BeanFactory}. None of the requirements
  * must be met for the condition to match and the requirements do not have to be met by
@@ -66,6 +68,7 @@ import org.springframework.context.annotation.Conditional;
 public @interface ConditionalOnMissingBean {
 
 	/**
+	 * 需要检查的类型
 	 * The class types of beans that should be checked. The condition matches when no bean
 	 * of each class specified is contained in the {@link BeanFactory}.
 	 * @return the class types of beans to check
@@ -73,6 +76,7 @@ public @interface ConditionalOnMissingBean {
 	Class<?>[] value() default {};
 
 	/**
+	 * 需要检查的类名称
 	 * The class type names of beans that should be checked. The condition matches when no
 	 * bean of each class specified is contained in the {@link BeanFactory}.
 	 * @return the class type names of beans to check
@@ -80,6 +84,7 @@ public @interface ConditionalOnMissingBean {
 	String[] type() default {};
 
 	/**
+	 * 检查时需要忽略的类型
 	 * The class types of beans that should be ignored when identifying matching beans.
 	 * @return the class types of beans to ignore
 	 * @since 1.2.5
@@ -87,6 +92,7 @@ public @interface ConditionalOnMissingBean {
 	Class<?>[] ignored() default {};
 
 	/**
+	 * 检查时需要忽略的类名称
 	 * The class type names of beans that should be ignored when identifying matching
 	 * beans.
 	 * @return the class type names of beans to ignore
@@ -95,6 +101,7 @@ public @interface ConditionalOnMissingBean {
 	String[] ignoredType() default {};
 
 	/**
+	 * 需要检查的注解
 	 * The annotation type decorating a bean that should be checked. The condition matches
 	 * when each annotation specified is missing from all beans in the
 	 * {@link BeanFactory}.
@@ -103,6 +110,7 @@ public @interface ConditionalOnMissingBean {
 	Class<? extends Annotation>[] annotation() default {};
 
 	/**
+	 * 需要检查Bean 名称
 	 * The names of beans to check. The condition matches when each bean name specified is
 	 * missing in the {@link BeanFactory}.
 	 * @return the names of beans to check
@@ -110,6 +118,7 @@ public @interface ConditionalOnMissingBean {
 	String[] name() default {};
 
 	/**
+	 * 搜索策略
 	 * Strategy to decide if the application context hierarchy (parent contexts) should be
 	 * considered.
 	 * @return the search strategy

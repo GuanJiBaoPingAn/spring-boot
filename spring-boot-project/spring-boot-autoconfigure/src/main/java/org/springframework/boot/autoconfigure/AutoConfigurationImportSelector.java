@@ -58,6 +58,8 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * {@link DeferredImportSelector} 实现，用于处理{@link EnableAutoConfiguration}
+ *
  * {@link DeferredImportSelector} to handle {@link EnableAutoConfiguration
  * auto-configuration}. This class can also be subclassed if a custom variant of
  * {@link EnableAutoConfiguration @EnableAutoConfiguration} is needed.
@@ -442,6 +444,9 @@ public class AutoConfigurationImportSelector implements DeferredImportSelector, 
 
 	}
 
+	/**
+	 * 自动配置点封装类
+	 */
 	protected static class AutoConfigurationEntry {
 
 		private final List<String> configurations;

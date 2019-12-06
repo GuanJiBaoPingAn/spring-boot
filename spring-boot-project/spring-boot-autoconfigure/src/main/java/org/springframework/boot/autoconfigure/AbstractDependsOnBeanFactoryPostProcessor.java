@@ -34,6 +34,7 @@ import org.springframework.core.Ordered;
 import org.springframework.util.StringUtils;
 
 /**
+ * {@link BeanFactoryPostProcessor} 的抽象基类实现，用于动态声明某个类型的bean 依赖其他的bean
  * Abstract base class for a {@link BeanFactoryPostProcessor} that can be used to
  * dynamically declare that all beans of a specific type should depend on specific other
  * beans identified by name or type.

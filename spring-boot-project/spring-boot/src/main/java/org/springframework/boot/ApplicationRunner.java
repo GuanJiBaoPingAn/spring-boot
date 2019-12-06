@@ -20,6 +20,8 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
 /**
+ * 该接口表明{@link SpringApplication} 内的bean需要run。多个{@link ApplicationRunner} bean可以通过实现
+ * {@link Ordered} 来实现顺序
  * Interface used to indicate that a bean should <em>run</em> when it is contained within
  * a {@link SpringApplication}. Multiple {@link ApplicationRunner} beans can be defined
  * within the same application context and can be ordered using the {@link Ordered}

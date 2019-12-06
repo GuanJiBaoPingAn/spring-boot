@@ -26,6 +26,7 @@ import org.springframework.boot.system.JavaVersion;
 import org.springframework.context.annotation.Conditional;
 
 /**
+ * {@link Conditional @Conditional} 匹配JVM 版本
  * {@link Conditional @Conditional} that matches based on the JVM version the application
  * is running on.
  *

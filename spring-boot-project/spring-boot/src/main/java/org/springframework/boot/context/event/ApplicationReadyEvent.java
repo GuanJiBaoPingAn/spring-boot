@@ -20,6 +20,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 /**
+ * {@link SpringApplication} 完全启动可以提供服务时触发该事件
  * Event published as late as conceivably possible to indicate that the application is
  * ready to service requests. The source of the event is the {@link SpringApplication}
  * itself, but beware of modifying its internal state since all initialization steps will

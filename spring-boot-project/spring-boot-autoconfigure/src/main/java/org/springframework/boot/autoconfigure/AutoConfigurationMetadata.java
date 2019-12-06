@@ -19,6 +19,7 @@ package org.springframework.boot.autoconfigure;
 import java.util.Set;
 
 /**
+ * 用于处理自动配置注解处理器产生的元数据
  * Provides access to meta-data written by the auto-configure annotation processor.
  *
  * @author Phillip Webb

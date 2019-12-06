@@ -25,6 +25,7 @@ import java.lang.annotation.Target;
 import org.springframework.context.annotation.Conditional;
 
 /**
+ * {@link Conditional @Conditional} 只匹配在类路径上的特点类
  * {@link Conditional @Conditional} that only matches when the specified classes are on
  * the classpath.
  * <p>
@@ -44,6 +45,7 @@ import org.springframework.context.annotation.Conditional;
 public @interface ConditionalOnClass {
 
 	/**
+	 * 必须的类。
 	 * The classes that must be present. Since this annotation is parsed by loading class
 	 * bytecode, it is safe to specify classes here that may ultimately not be on the
 	 * classpath, only if this annotation is directly on the affected component and
@@ -54,6 +56,7 @@ public @interface ConditionalOnClass {
 	Class<?>[] value() default {};
 
 	/**
+	 * 必须的类名称。
 	 * The classes names that must be present.
 	 * @return the class names that must be present.
 	 */

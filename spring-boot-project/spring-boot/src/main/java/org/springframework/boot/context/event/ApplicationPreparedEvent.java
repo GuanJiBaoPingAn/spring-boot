@@ -22,6 +22,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 
 /**
+ * {@link SpringApplication} 在启动时，{@link ApplicationContext} 准备完成但未刷新时触发该事件。
+ * 在该阶段BeanDefinition 已被加载，{@link Environment} 也可用
  * Event published as when a {@link SpringApplication} is starting up and the
  * {@link ApplicationContext} is fully prepared but not refreshed. The bean definitions
  * will be loaded and the {@link Environment} is ready for use at this stage.

@@ -22,6 +22,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 /**
+ * 应用上下文刷新了，但是在{@link ApplicationRunner application} 和 {@link CommandLineRunner command line}
+ * 回调之前触发事件
  * Event published once the application context has been refreshed but before any
  * {@link ApplicationRunner application} and {@link CommandLineRunner command line}
  * runners have been called.

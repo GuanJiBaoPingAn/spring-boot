@@ -38,6 +38,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
+ * {@link Configuration @Configuration} 集合，
  * A set of {@link Configuration @Configuration} classes that can be registered in
  * {@link ApplicationContext}. Classes can be returned from one or more
  * {@link Configurations} instances by using {@link #getClasses(Configurations[])}. The

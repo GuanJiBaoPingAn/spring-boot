@@ -27,6 +27,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
 /**
+ * 自动配置顺序注解。
  * Auto-configuration specific variant of Spring Framework's {@link Order @Order}
  * annotation. Allows auto-configuration classes to be ordered among themselves without
  * affecting the order of configuration classes passed to

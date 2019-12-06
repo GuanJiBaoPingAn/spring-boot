@@ -38,6 +38,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
+ * 记录条件判断细节，用于日志
  * Records condition evaluation details for reporting and logging.
  *
  * @author Greg Turnquist

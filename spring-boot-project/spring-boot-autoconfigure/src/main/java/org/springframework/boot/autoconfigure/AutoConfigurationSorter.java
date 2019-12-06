@@ -32,6 +32,7 @@ import org.springframework.core.type.classreading.MetadataReaderFactory;
 import org.springframework.util.Assert;
 
 /**
+ * {@link EnableAutoConfiguration auto-configuration} 类的排序
  * Sort {@link EnableAutoConfiguration auto-configuration} classes into priority order by
  * reading {@link AutoConfigureOrder @AutoConfigureOrder},
  * {@link AutoConfigureBefore @AutoConfigureBefore} and
@@ -98,6 +99,9 @@ class AutoConfigurationSorter {
 		sorted.add(current);
 	}
 
+	/**
+	 * {@code AutoConfigurationClass} 的门面
+	 */
 	private static class AutoConfigurationClasses {
 
 		private final Map<String, AutoConfigurationClass> classes = new HashMap<>();
@@ -147,6 +151,9 @@ class AutoConfigurationSorter {
 
 	}
 
+	/**
+	 * 被{@code AutoConfigure*} 注解的类的封装
+	 */
 	private static class AutoConfigurationClass {
 
 		private final String className;
@@ -180,6 +187,10 @@ class AutoConfigurationSorter {
 			}
 		}
 
+		/**
+		 * 获取{@code AutoConfigureBefore} 注解的集合，优先取配置文件中的，其次取类上注解
+		 * @return
+		 */
 		Set<String> getBefore() {
 			if (this.before == null) {
 				this.before = (wasProcessed() ? this.autoConfigurationMetadata.getSet(this.className,
@@ -188,6 +199,10 @@ class AutoConfigurationSorter {
 			return this.before;
 		}
 
+		/**
+		 * 获取{@code AutoConfigureAfter} 注解的集合，优先取配置文件中的，其次取类上注解
+		 * @return
+		 */
 		Set<String> getAfter() {
 			if (this.after == null) {
 				this.after = (wasProcessed() ? this.autoConfigurationMetadata.getSet(this.className,
@@ -196,6 +211,10 @@ class AutoConfigurationSorter {
 			return this.after;
 		}
 
+		/**
+		 * 获取{@code AutoConfigureOrder} 注解的值，优先取配置文件中的，其次取类上注解
+		 * @return
+		 */
 		private int getOrder() {
 			if (wasProcessed()) {
 				return this.autoConfigurationMetadata.getInteger(this.className, "AutoConfigureOrder",
@@ -206,6 +225,10 @@ class AutoConfigurationSorter {
 			return (attributes != null) ? (Integer) attributes.get("value") : AutoConfigureOrder.DEFAULT_ORDER;
 		}
 
+		/**
+		 * 是否尝试寻找过？有无配置文件且配置文件中有无给定类名
+		 * @return
+		 */
 		private boolean wasProcessed() {
 			return (this.autoConfigurationMetadata != null
 					&& this.autoConfigurationMetadata.wasProcessed(this.className));

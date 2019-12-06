@@ -20,6 +20,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
+ * 条件匹配结果，包括日志消息
  * Outcome for a condition match, including log message.
  *
  * @author Phillip Webb

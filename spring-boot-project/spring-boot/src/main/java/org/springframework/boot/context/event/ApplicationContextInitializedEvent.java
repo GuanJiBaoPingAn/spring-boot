@@ -21,6 +21,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 
 /**
+ * {@link SpringApplication} 启动时，{@link ApplicationContext} 在准备阶段ApplicationContextInitializers被调用，
+ * 而BeanDefinition 没有被加载时触发事件
  * Event published when a {@link SpringApplication} is starting up and the
  * {@link ApplicationContext} is prepared and ApplicationContextInitializers have been
  * called but before any bean definitions are loaded.
